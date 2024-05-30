@@ -89,7 +89,7 @@ void	read_input(char *file_name, std::map<std::string, double> data)
 	else
 	{
 		std::cout << "Unable to open file" << std::endl;
-		exit(0);
+		return ;
 	}
 }
 
