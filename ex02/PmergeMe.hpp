@@ -16,22 +16,21 @@
 # include <iostream>
 # include <string>
 # include <algorithm>
-# include <list>
+# include <vector>
 # include <deque>
 
 template <typename T>
 int		parse_numbers(int argc, char **argv, T *numbers)
 {
-
 	for (int i = 1; i < argc; i++)
 	{
 		if (argv[i][0] == '-')
 			return (0);
-		numbers->push_back(std::strtod(argv[i], NULL));
+		numbers->push_back(atoi(argv[i]));
 	}
 	return (1);
 }
 
-void	sort_list(std::list<double> *n_list);
+std::vector<int>	sort_vector(std::vector<int> n_vector);
 
 #endif
