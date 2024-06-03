@@ -12,3 +12,7 @@
 
 #include "PmergeMe.hpp"
 
+void	sort_list(std::list<double> *n_list)
+{
+	
+}

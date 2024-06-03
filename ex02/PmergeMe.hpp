@@ -20,7 +20,7 @@
 # include <deque>
 
 template <typename T>
-int	parse_numbers(int argc, char **argv, T *numbers)
+int		parse_numbers(int argc, char **argv, T *numbers)
 {
 
 	for (int i = 1; i < argc; i++)
@@ -31,5 +31,7 @@ int	parse_numbers(int argc, char **argv, T *numbers)
 	}
 	return (1);
 }
+
+void	sort_list(std::list<double> *n_list);
 
 #endif

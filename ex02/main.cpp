@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	}
 
 	std::list<double> n_list;
-	std::list<double> n_deque;
+	std::deque<double> n_deque;
 	if (!parse_numbers(argc, argv, &n_list) || !parse_numbers(argc, argv, &n_deque))
 	{
 		std::cout << "Error: Invalid input" << std::endl;
@@ -31,6 +31,11 @@ int main(int argc, char *argv[])
 	//show numbers :
 
 	for (std::list<double>::iterator it = n_list.begin(); it != n_list.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+
+	for (std::deque<double>::iterator it = n_deque.begin(); it != n_deque.end(); ++it)
 	{
 		std::cout << *it << std::endl;
 	}
