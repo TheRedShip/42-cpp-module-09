@@ -66,6 +66,7 @@ void	show_convert(std::string line, std::map<std::string, double> data)
 
 void	read_input(char *file_name, std::map<std::string, double> data)
 {
+	int				i = 0;
 	std::string		line;
 	std::ifstream	file(file_name);
 
@@ -73,7 +74,12 @@ void	read_input(char *file_name, std::map<std::string, double> data)
 	{
 		while (std::getline(file, line))
 		{
-			if (line.substr(0, 4) == "date")
+			if (i++ == 0 && line.substr(0, 12) != "date | value")
+			{
+				std::cout << "Error: Bad header file" << std::endl;
+				return ;
+			}
+			if (i == 1)
 				continue ;
 			if (line[line.size() - 1] == '\r')
 				line = line.substr(0, line.size() - 1);
