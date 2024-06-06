@@ -12,6 +12,26 @@
 
 #include "PmergeMe.hpp"
 
+template <typename T>
+void	show_sort(T container)
+{
+	clock_t start = clock();
+	T sorted = sort_container(container);
+	clock_t end = clock();
+
+	for (typename T::iterator it = sorted.begin(); it != sorted.end(); ++it)
+	{
+		if (it - sorted.begin() > 10)
+		{
+			std::cout << "[...] ";
+			break ;
+		}
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "Process took : " << (end - start) / (double)CLOCKS_PER_SEC * 100 << "us" << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
 	if (argc == 1)
@@ -28,15 +48,13 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	std::vector<int> vec_sort = sort_vector(n_vector);
+	std::cout << "Vector: ";
+	show_sort(n_vector);
 
-	// for (std::list<double>::iterator it = n_list.begin(); it != n_list.end(); ++it)
-	// {
-	// 	std::cout << *it << std::endl;
-	// }
+	std::cout << std::endl;
 
-	// for (std::deque<double>::iterator it = n_deque.begin(); it != n_deque.end(); ++it)
-	// {
-	// 	std::cout << *it << std::endl;
-	// }
+	std::cout << "Deque: ";
+	show_sort(n_deque);
+
+	return (0);
 }
